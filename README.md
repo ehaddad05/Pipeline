@@ -44,7 +44,9 @@ Merge the -p and -a arguments
 
 -g : This argument takes the genbank file for that accession
 
+```
 python3 program.py -p y -a ERR2736130 -n RNA_Cyano_Condition1 -g ~/Cyanobacteria.gbk
+```
 
 # Creating a new project out of certain accession files
 -u: Takes the name of the project
@@ -60,16 +62,23 @@ python3 program.py -p y -a ERR2736130 -n RNA_Cyano_Condition1 -g ~/Cyanobacteria
 
 Using fcount references:
 
+```
 python3 program.py -u ProjectName -q RNA_Cyano_Condition1 RPF_Cyano_Condition1 -l ~/Pipeline/OUTPUT/ERR2736130.fcount ~/Pipeline/OUTPUT/ERR2736134.fcount -k ~/Pipeline/CyanoKEGG.txt
+```
 
 Using descriptive accession references:
 
+```
 python3 program.py -u ProjectName -l RNA_Cyano_Condition1 RPF_Cyano_Condition1 -k ~/Pipeline/CyanoKEGG.txt
+```
 
 *If one of the samples have multiple reads for one condition, make sure to append "Piece#" at the end of the descriptive name so that the pipeline can sum up their reads into one dataframe column
 
 Example:
+
+```
 python3 program.py -u ProjectName -l RNA_Cyano_Condition1_Piece1 RNA_Cyano_Condition1_Piece2 RPF_Cyano_Condition1_Piece1 RPF_Cyano_Condition1_Piece2 -k ~/Pipeline/CyanoKEGG.txt
+```
 
 # Quick tools
 -t: Takes the name of what you want to get. Current choices are: GBK amino acid fasta (gbk_fa), GBK nucleotide fasta (gbk_na)
@@ -78,6 +87,10 @@ python3 program.py -u ProjectName -l RNA_Cyano_Condition1_Piece1 RNA_Cyano_Condi
 
 Example:
 
+```
 python3 program.py -t gbk_fa -i ~/Cyanobacteria.gbk
+```
 
+```
 python3 program.py -t gbk_na -i ~/Cyanobacteria.gbk
+```
