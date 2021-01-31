@@ -2,7 +2,7 @@
 
 
 # Bugs that are still being worked on:
-  -Featurecounts output says that there are no reads for the accession I proccessed (Unassigned_NoFeatures	43855675; Unassigned_Unmapped	1065304). This is for sure a problem with the pipeline, because I tested the pipeline commands with the same accession's sorted bam file, one that was made prior to the creation of this pipeline, and it yielded correct results. The bowtie2 alignment output is equivalent to the alignment done in the past. Howver, looking at the file sizes, the pipeline produced a sorted bam file that was about 100mb larger than the one produced in the past. I will look into the cause.
+  -Featurecounts output says that there are no reads for the accession I proccessed (Unassigned_NoFeatures	43855675; Unassigned_Unmapped	1065304). This is for sure a problem with the pipeline, because I tested the pipeline commands with the same accession's sorted bam file, one that was made prior to the creation of this pipeline, and it yielded correct results. The bowtie2 alignment output is equivalent to the alignment done in the past. However, looking at the file sizes, the pipeline produced a sorted bam file that was about 100mb larger than the one produced in the past. I will look into the cause.
 
 # Features that are untested:
 The combining of multiple pieces of reads into one read
