@@ -32,7 +32,6 @@ Merge the -p and -a arguments
 
 
 
-Examples of usage:
 
 # Process an accession file
 
