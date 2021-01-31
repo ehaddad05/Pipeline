@@ -36,7 +36,7 @@ class GBK:
 		self.LocusTag = Pieces[7]
 		self.GenomeSize = Pieces[14]
 		self.IndexName = self.LocusTag + "_index"
-		self.ProteinReference = "/home/kz/Pipeline/MIDDLE/%s.fa" % self.LocusTag
+		
 		
 
 
@@ -46,16 +46,16 @@ class GBK:
 		return GBKObject
 
 
-	def MakeNa(self):
-		self.FastaReference = "/home/kz/Pipeline/MIDDLE/GBKtoFastaOutput.fasta"
+	def MakeNa(self,where):
+		self.FastaReference = "/home/kz/Pipeline/%s/GBK_na.fasta" % where
 		with open(self.Reference, "r") as input_handle:
 			with open(self.FastaReference, "w") as output_handle:
 				sequences = SeqIO.parse(input_handle, "genbank")
 				count = SeqIO.write(sequences, output_handle, "fasta")
-	def MakeFa(self):
+	def MakeFa(self,where):
 		cds=[]
 		locus_tag=[]
-
+		self.ProteinReference = "/home/kz/Pipeline/%s/%s.fa" % (where, self.LocusTag)
 
 		rec = next(SeqIO.parse(self.Reference,'gb'))
 		seq = rec.seq

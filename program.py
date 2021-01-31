@@ -29,10 +29,12 @@ def parser():
 	parser.add_argument("-q",'--quick', nargs='+', help = "Use this option if you are directly providing fcount references, and list the descriptive names of those references",dest="FCountnames")
 	parser.add_argument("-l",'--list', nargs='+', help="<Required> Provide list of descriptive names of accessions or fcount references",dest="list")
 	parser.add_argument("-k", '--kegg', help = "Provide kegg reference file here", dest = "kegg")
-	args = parser.parse_args()
 	## Args for only getting specific things
 	parser.add_argument("-t", '--get', help = "Specifies what you want to get. Current Options: GBK amino acid fasta (gbk_fa), GBK nucleotide fasta (gbk_na)", dest = "get")
 	parser.add_argument("-i", '--input', help = "Provide input here", dest = "input")
+	args = parser.parse_args()
+
+
 	return(args)
 
 
@@ -70,8 +72,8 @@ def main(args):
 		InputGBK = GBK(args.g)
 		print("GBK is read")
 		InputGBK.MakeSAF()
-		InputGBK.MakeNa()
-		InputGBK.MakeFa()
+		InputGBK.MakeNa("MIDDLE")
+		InputGBK.MakeFa("MIDDLE")
 		print("GBK SAF is made")
 		InputSRA.TrimAccession()
 		print("SRA is trimmed")
@@ -102,11 +104,11 @@ def main(args):
 		NewProject.CalculateTE()
 		NewProject.MergeWithKegg()
 	elif hasattr(args,'get') and args.get is not None:
-		InputGBK = GBK(args.i)
+		InputGBK = GBK(args.input)
 		if args.get == "gbk_fa":
-			InputGBK.MakeFa()
+			InputGBK.MakeFa("OUTPUT")
 		elif args.get == "gbk_na":
-			InputGBK.MakeNa()
+			InputGBK.MakeNa("OUTPUT")
 		else:
 			print("No \"get\" option was selected")
 		
