@@ -7,10 +7,10 @@
 # Features that are untested:
 The combining of multiple pieces of reads into one read
 
-Analyzing with descriptive accession name input (due to the featurecount bug)
+Analyzing with descriptive accession name input (due to the bug)
   
 # Features that were tested and work:
-Accession processing (however the bug with featurecounts is making the output empty)
+Accession processing (however the bug is making the output empty)
 
 Cache System
 
