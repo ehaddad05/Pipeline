@@ -21,9 +21,9 @@ def parser():
 	parser = argparse.ArgumentParser()
 	### Args for processing an accession file
 	parser.add_argument("-p",'--process', help="Option to process data", dest = "process")
-	parser.add_argument("-a",'--accession', help="SRA accession file")
-	parser.add_argument("-n",'--name', help="SRA accession file descriptive name")
-	parser.add_argument("-g",'--gbk', help="GBK file")
+	parser.add_argument("-a",'--accession', help="SRA accession file", dest = "accession")
+	parser.add_argument("-n",'--name', help="SRA accession file descriptive name", dest = "name")
+	parser.add_argument("-g",'--gbk', help="GBK file", dest = "gbk")
 	### Args for creating a project out of specific accession files
 	parser.add_argument("-u",'--project', help = "Option to make a new project (provide name of project here too)",dest = "projectname")
 	parser.add_argument("-q",'--quick', nargs='+', help = "Use this option if you are directly providing fcount references, and list the descriptive names of those references",dest="FCountnames")
@@ -67,9 +67,9 @@ def main(args):
 
 	if hasattr(args,'process') and args.process is not None:
 
-		InputSRA = SRA(args.n, args.a)
+		InputSRA = SRA(args.name, args.accession)
 		print("SRA is downloaded")
-		InputGBK = GBK(args.g)
+		InputGBK = GBK(args.gbk)
 		print("GBK is read")
 		InputGBK.MakeSAF()
 		InputGBK.MakeNa("MIDDLE")

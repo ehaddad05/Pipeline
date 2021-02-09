@@ -55,7 +55,7 @@ class SRA:
 					time.sleep(1)
 		self.Reference = "/home/kz/Pipeline/SRA_INPUT_FILES/" + Accession + ".fastq"
 
-	def __init__(self,cacheDict):
+	def __init2__(self,cacheDict):
 		self.DescriptiveName = cacheDict["DescriptiveName"]
 		self.Accession = cacheDict["Accession"]
 		self.Reference = cacheDict["Reference"] 
